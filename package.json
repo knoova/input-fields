@@ -1,0 +1,33 @@
+{
+  "name": "knoova-input-fields",
+  "version": "0.0.1",
+  "description": "Simple way to have fields",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "bro": "browserify ./build/index.js -o ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knoova/input-fields.git"
+  },
+  "keywords": [
+    "input",
+    "fields",
+    "knoova"
+  ],
+  "author": "Team Iguana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knoova/input-fields/issues"
+  },
+  "homepage": "https://github.com/knoova/input-fields#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.3.29",
+    "browserify": "^16.2.3",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
