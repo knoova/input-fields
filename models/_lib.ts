@@ -1,9 +1,12 @@
 
-export interface DataState<T> {
-    state: "ok" | "err"
-    value?: T
-    message?: string
-}
+export type DataState<T> = {
+    state: "ok"
+    value: T
+} | {
+        state: "err"
+        message?: string
+        value: null | undefined
+    }
 
 export interface Model<T> {
     write(data: T): void,

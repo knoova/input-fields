@@ -66,7 +66,7 @@ export function date(
         yearwrapper.append(yearTitle, yearField.append(yearDriver.el))
 
 
-       
+
 
 
         const sep1 = tags.div().addClass("ti-input-data-calendar-fields-wrapper").addClass("flex-1").append(
@@ -95,8 +95,9 @@ export function date(
     function setValue(value: string | null, stop?: boolean) {
         valueMod.write({ state: "ok", value: value ? subsT0(value) : value })
         bufferValue = value ? subsT0(value) : value
-        if (!stop) {
-            console.log("set value date", valueMod.read().value)
+        const state = valueMod.read()
+        if (!stop && state.state == "ok") {
+            console.log("set value date", state.value)
             const thisDate = new Date(value)
             dayDriver.set(thisDate.getDate())
             monthDriver.set((thisDate.getMonth() + 1))

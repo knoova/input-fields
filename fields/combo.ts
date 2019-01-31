@@ -32,7 +32,7 @@ export function combo<T>(args: core.ComboInput<T>): core.Input<string> {
 export function search<T extends { _id: string, value: string }>(args: Partial<core.ComboInput<T>>, values: T[]): core.Input<string> {
     const wrapper = tags.div().append(tags.label().text(args.title))
     const comboBox = tags.select()
-    const model = models.createModel<models.DataState<string>>(args.nullable ? { state: "ok", value: null } : { state: "err" })
+    const model = models.createModel<models.DataState<string>>(args.nullable ? { state: "ok", value: null } : { state: "err", value: null })
     const trueCombo = <HTMLSelectElement>comboBox[0]
     for (const value of values) {
         comboBox.append(tags.option().attr({ value: value._id }).html(value.value))
