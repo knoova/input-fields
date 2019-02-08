@@ -1,4 +1,15 @@
+import * as string from "./string"
+import * as boolean from "./boolean"
+import * as radio from "./radio"
+import * as radioMulti from "./radioMulti"
+import * as upload from "./upload"
+import * as object from "./object"
+import * as number from "./number"
+import * as combo from "./combo"
+import * as date from "./data"
 import * as models from "../models/_lib"
+
+import * as validator from "./validator/_lib"
 
 export type InputType = "string" | "password" | "mail" | "boolean" | "radio" | "upload" | "uploadImage" | "uploadPdf" | "number" | "combo"
 
@@ -42,8 +53,8 @@ export interface BooleanInput extends InputArgs<boolean> {
 }
 
 export interface ComboInput<T> extends InputArgs<T> {
-    visualName: keyof T, 
-    valueName: keyof T, 
+    visualName: keyof T,
+    valueName: keyof T,
     values: T[]
 }
 
@@ -55,5 +66,14 @@ export interface Input<T> {
 
 export type ObjInput<T extends Object> = {
     [K in keyof T]: InputArgs<T[K]>
+}
+
+
+export function build(def: InputArgs<string>) {
+    switch (def.type) {
+        case "string": {
+            return string.stringInput(def, validator.validate("string"))
+        }
+    }
 }
 

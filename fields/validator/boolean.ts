@@ -2,7 +2,7 @@ import * as core from "../_core"
 import * as models from "../../models/_lib"
 
 
-export function validate(def: core.BooleanInput, value: string): models.DataState<string> {
+export function validate(def: core.BooleanInput, value: boolean): models.DataState<boolean> {
     if(typeof value !== "boolean"){
         return { state: "err", message: "Il valore deve essere un boolean" }
     }

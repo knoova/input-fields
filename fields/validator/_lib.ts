@@ -8,26 +8,34 @@ import * as number from "./number"
 
 //"string" | "password" | "mail" | "boolean" | "radio" | "upload" | "uploadImage" | "uploadPdf" | "number" | "combo"
 
-function validateOther(def: core.InputArgs<any>, value: string): models.DataState<string> {
+export type Validator<T> = (def: core.InputArgs<T>, value: T) => models.DataState<T>
+
+function validateOther(def: core.InputArgs<any>, value: any): models.DataState<any> {
     return { state: "ok", value }
 }
 
 
-function validate(def: core.InputArgs<any>, value: any) {
-    if (def.type == "string") {
-        return string.validateString(def, value)
+export function validate(type: core.InputType) {
+
+    switch (type) {
+        case "string": {
+            return string.validateString
+        }
+        case "mail": {
+            return string.validateString
+        }
+        case "password": {
+            return string.validatePassword
+        }
+        case "boolean": {
+            return boolean.validate
+        }
+        case "number": {
+            return number.validate
+        }
+        default: {
+            return validateOther
+        }
     }
-    if (def.type == "mail") {
-        return string.validateString(def, value)
-    }
-    if (def.type == "password") {
-        return string.validatePassword(def, value)
-    }
-    if (def.type == "boolean") {
-        return boolean.validate(def, value)
-    }
-    if (def.type == "number") {
-        return number.validate(def, value)
-    }
-    return validateOther(def, value)
+
 }

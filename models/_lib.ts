@@ -5,7 +5,6 @@ export type DataState<T> = {
 } | {
         state: "err"
         message?: string
-        value: null | undefined
     }
 
 export interface Model<T> {
