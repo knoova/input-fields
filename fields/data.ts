@@ -106,50 +106,50 @@ export function date(
     }
 
 
-    dayDriver.model.watch(day => {
-        console.log(day)
-        if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
-            console.log("was null")
-            setValue(null, true)
-            return
-        }
-        else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
-            const date = yearDriver.model.read().value + "-" +
-                ((monthDriver.model.read().value < 10) ? "0" + monthDriver.model.read().value : monthDriver.model.read().value) + "-" +
-                ((day.value < 10) ? "0" + day.value : day.value) + completeDate
-            setValue(date, true)
-        }
-    })
+    // dayDriver.model.watch(day => {
+    //     console.log(day)
+    //     if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
+    //         console.log("was null")
+    //         setValue(null, true)
+    //         return
+    //     }
+    //     else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
+    //         const date = yearDriver.model.read().value + "-" +
+    //             ((monthDriver.model.read().value < 10) ? "0" + monthDriver.model.read().value : monthDriver.model.read().value) + "-" +
+    //             ((day.value < 10) ? "0" + day.value : day.value) + completeDate
+    //         setValue(date, true)
+    //     }
+    // })
 
-    monthDriver.model.watch(month => {
-        console.log(month)
-        if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
-            console.log("was null")
-            setValue(null, true)
-            return
-        }
-        else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
-            const date = yearDriver.model.read().value + "-" +
-                ((month.value < 10) ? "0" + month.value : month.value) + "-" +
-                ((dayDriver.model.read().value < 10) ? "0" + dayDriver.model.read().value : dayDriver.model.read().value) + completeDate
-            setValue(date, true)
-        }
-    })
+    // monthDriver.model.watch(month => {
+    //     console.log(month)
+    //     if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
+    //         console.log("was null")
+    //         setValue(null, true)
+    //         return
+    //     }
+    //     else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
+    //         const date = yearDriver.model.read().value + "-" +
+    //             ((month.value < 10) ? "0" + month.value : month.value) + "-" +
+    //             ((dayDriver.model.read().value < 10) ? "0" + dayDriver.model.read().value : dayDriver.model.read().value) + completeDate
+    //         setValue(date, true)
+    //     }
+    // })
 
-    yearDriver.model.watch(year => {
-        console.log(year)
-        if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
-            console.log("was null")
-            setValue(null, true)
-            return
-        }
-        else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
-            const date = year.value + "-" +
-                ((monthDriver.model.read().value < 10) ? "0" + monthDriver.model.read().value : monthDriver.model.read().value) + "-" +
-                ((dayDriver.model.read().value < 10) ? "0" + dayDriver.model.read().value : dayDriver.model.read().value) + completeDate
-            setValue(date, true)
-        }
-    })
+    // yearDriver.model.watch(year => {
+    //     console.log(year)
+    //     if (!dayDriver.model.read().value && !monthDriver.model.read().value && !yearDriver.model.read().value) {
+    //         console.log("was null")
+    //         setValue(null, true)
+    //         return
+    //     }
+    //     else if (dayDriver.model.read().value && monthDriver.model.read().value && yearDriver.model.read().value) {
+    //         const date = year.value + "-" +
+    //             ((monthDriver.model.read().value < 10) ? "0" + monthDriver.model.read().value : monthDriver.model.read().value) + "-" +
+    //             ((dayDriver.model.read().value < 10) ? "0" + dayDriver.model.read().value : dayDriver.model.read().value) + completeDate
+    //         setValue(date, true)
+    //     }
+    // })
 
 
     // valueMod.watch((a) => {

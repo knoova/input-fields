@@ -1,6 +1,6 @@
 {
   "name": "knoova-input-fields",
-  "version": "0.1.3",
+  "version": "0.2.3",
   "description": "Simple way to have fields",
   "main": "index.js",
   "scripts": {
